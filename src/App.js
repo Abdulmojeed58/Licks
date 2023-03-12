@@ -20,7 +20,6 @@ function App() {
         <Navbar />
         <div className={classes.flex}>
           <div className={classes.left} />
-            {/* <FoodItems /> */}
           <Routes>
             <Route path='/' element={<FoodItems />} />
             <Route path='/explore' element={<Explore />} />

@@ -5,7 +5,7 @@ import classes from './Food.module.css';
 const Food = (props) =>{
     return (
         <>
-            <div className={classes.foodImageContainer}>
+            <div className={`${classes.foodImageContainer} ${props.className}`}>
                 <img src={props.image} alt={props.name} />
             </div>
             <p>{props.name}</p>

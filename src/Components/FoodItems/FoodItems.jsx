@@ -25,7 +25,7 @@ const FoodItems = () => {
         })
         .catch(error=>console.log(`There is an error ${error}`))
         
-        console.log(foodData)
+        // console.log(foodData)
     }, [])
     
 
@@ -36,7 +36,7 @@ const FoodItems = () => {
     const sliceFood = viewAll ? foodData.categories : foodData.categories?.slice(0,5);
 
 
-    const allFoodData = sliceFood?.map((category, i)=>{
+    const allFoodData = sliceFood?.map((category)=>{
         const {idCategory, strCategory: name, strCategoryThumb: image} = category
         return (
             <div className={classes.food}>
