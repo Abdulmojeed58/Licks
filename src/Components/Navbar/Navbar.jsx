@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../Images/Logo.png";
 import Profile from "../../Images/Profile.png";
@@ -73,7 +73,7 @@ const Navbar = () => {
 
             <div className={classes.bottom}>
                 <div className={classes.profile}>
-                    <img src={Profile} alt="Profile Photo" />
+                    <img src={Profile} alt="Profile" />
                 </div>
                 <div>
                     <h4>Ayoola Abdulmojeed</h4>
