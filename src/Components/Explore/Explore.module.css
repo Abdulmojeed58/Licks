@@ -22,7 +22,7 @@
     justify-content: space-between;
     margin-inline: 2rem;
     font-size: 1.6rem;
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
 }
 
 .explore .header {
@@ -145,6 +145,6 @@
     .explore .foodData {
         margin-inline: 1rem;
     }
-    
+
     
 }

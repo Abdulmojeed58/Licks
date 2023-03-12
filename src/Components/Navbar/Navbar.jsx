@@ -40,10 +40,13 @@ const Navbar = () => {
                     <AiOutlineSearch />
                     <span>Explore</span>
                 </Link>
-                <li>
+                <Link to='cart' className={currentId === 3 ? classes.active : ''} onClick={()=>{
+                    handleChange()
+                    handleIdChange(3)
+                }}>
                     <HiShoppingCart />
                     <span>Cart</span>
-                </li>
+                </Link>
                 <li>
                     <RxCountdownTimer />
                     <span>Orders</span>

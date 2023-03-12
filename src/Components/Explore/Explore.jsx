@@ -44,11 +44,11 @@ const Explore = () => {
 
     return (
         <section className={classes.explore}>
-            <h1>Explore our menu</h1>
             <div className={classes.topIcon}>
                 <AiOutlineMenu onClick={handleChange} style={{cursor: 'pointer'}} />
                 <MdNotificationsNone />
             </div>
+            <h1>Explore our menu</h1>
             <div className={classes.header}>
                 <div className={classes.input}>
                     <AiOutlineSearch className={classes.searchIcon} />
