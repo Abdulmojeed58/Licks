@@ -1,0 +1,80 @@
+.chatBox {
+    width: 25vw;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    right: 3rem;
+    top: 0;
+    padding: 2rem 1rem;
+}
+
+.chatBox h1 {
+    font-weight: 500;
+    text-align: center;
+}
+
+.chatBox .allChats {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chatBox .bottom {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+    width: calc(100% - 1rem);
+}
+
+.chatBox .bottom textarea {
+    width: 80%;
+    height: 50px;
+    font-size: inherit;
+    padding: 8px;
+    font-size: .9rem;
+}
+
+.chatBox .bottom .sendBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    aspect-ratio: 1;
+    background-color: #313715;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.chatBox .bottom .sendIcon {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+    .chatBox {
+        width: 35vw;
+    }
+}
+
+
+
+@media (max-width: 730px) {
+    .chatBox {
+        box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.192);
+        width: 100vw;
+        display: none;
+        right: 0;
+    }   
+
+    .active {
+        display: block;
+    }
+}

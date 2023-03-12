@@ -1,0 +1,11 @@
+.chat {
+    background-color: #566500;
+    color: white;
+    width: max-content;
+    max-width: 70%;
+    margin-bottom: .5rem;
+    padding: .5rem;
+    border-radius: 5px;
+    border-bottom-right-radius: 0;
+    font-size: .8rem;
+}

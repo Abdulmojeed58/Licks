@@ -1,0 +1,19 @@
+.animation {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.037);
+    /* background: linear-gradient(to left, rgba(0, 0, 0, 0.041), white, white, white, rgba(0, 0, 0, 0.041), white, white, white); */
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.091), rgba(0, 0, 0, 0.078), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.078), rgba(0, 0, 0, 0.091));
+    animation: animation 1.5s linear .1s infinite normal;
+}
+
+@keyframes animation {
+    0% {
+        background-position: 0px, 0;
+    }
+
+    100% {
+        background-position: 80px, 0;
+    }
+}

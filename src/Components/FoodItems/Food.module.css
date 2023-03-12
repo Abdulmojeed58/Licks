@@ -1,0 +1,20 @@
+.foodImageContainer {
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.037);
+    height: 80px;
+    /* position: relative;
+    z-index: 0; */
+}
+
+.foodImageContainer img {
+    width: 100%;
+    height: 100%;
+    /* position: relative;
+    z-index: -1; */
+}
+
+.foodImageContainer ~ p {
+    font-size: .6rem;
+    font-weight: 700;
+}

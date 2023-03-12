@@ -1,0 +1,96 @@
+.explore {
+    width: 41vw;
+    background-color: white;
+    min-height: 100vh;
+    padding: 2rem 0;
+    /* position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); */
+}
+
+.explore h1 {
+    font-weight: 500;
+    /* background-color: blue; */
+    margin-inline: 2rem;
+    margin-bottom: 1rem;
+}
+
+.explore .topIcon {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.explore .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 2rem;
+}
+
+.explore .header .input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #787770;
+    border-radius: 8px;
+    padding: .3rem;
+    padding-inline: 1rem;
+    width: 90%;
+    gap: .5rem;
+}
+
+.explore .header input {
+    height: 35px;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: #787770;
+}
+
+.explore .header .searchIcon {
+    font-size: 1.3rem;
+    color: #787770;
+}
+
+.explore .header .likeIcon {
+    font-size: 1.8rem;
+    color: #0000009d;
+}
+
+
+
+@media (max-width: 900px) {
+    .explore {
+        width: 50vw;
+    }
+
+    .explore .topIcon {
+        display: flex;
+    }
+
+}
+
+
+@media (max-width: 730px) {
+    .explore {
+        width: 100vw;
+    }
+
+    .explore h1 {
+        margin-inline: 1rem;
+    }
+
+    .explore .topIcon {
+        margin-inline: 1rem;
+    }
+
+    .explore .header {
+        margin-inline: 1rem;
+        gap: 1rem;
+    }
+}
