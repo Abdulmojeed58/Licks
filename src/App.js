@@ -27,7 +27,7 @@ function App() {
           </Routes>
           <div className={classes.right} />
         </div>
-        <ChatBox showChat={isShowChat} />
+        <ChatBox showChat={isShowChat} handleIsShowChat={handleIsShowChat} />
         <BsFillChatDotsFill className={classes.box} onClick={handleIsShowChat} />
       </div>
   );

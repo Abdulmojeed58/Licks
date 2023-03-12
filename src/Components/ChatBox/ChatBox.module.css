@@ -6,6 +6,7 @@
     right: 3rem;
     top: 0;
     padding: 2rem 1rem;
+    z-index: 50;
 }
 
 .chatBox h1 {
@@ -58,6 +59,16 @@
     font-size: 1.2rem;
 }
 
+.chatBox .close {
+    font-size: 2rem;
+    cursor: pointer;
+    display:  none;
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+}
+
+
 @media (max-width: 900px) {
     .chatBox {
         width: 35vw;
@@ -76,5 +87,9 @@
 
     .active {
         display: block;
+    }
+
+    .chatBox .close {
+        display:  block;
     }
 }

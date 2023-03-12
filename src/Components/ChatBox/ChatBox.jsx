@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
 import Chat from "./Chat";
 import { BiSend } from "react-icons/bi";
+import { RiCloseFill } from "react-icons/ri";
 
 import classes from './ChatBox.module.css'
 
-const ChatBox = ({ showChat }) => {
+const ChatBox = ({ showChat, handleIsShowChat }) => {
     const [chats, setChats] = useState(['Hello, Licks.', 'mjay'])
     const ref = useRef()
 
@@ -25,6 +26,7 @@ const ChatBox = ({ showChat }) => {
 
     return (
         <section className={showChat ? `${classes.chatBox} ${classes.active}` : classes.chatBox}>
+            <RiCloseFill className={classes.close} onClick={handleIsShowChat} />
             <h1>Chat</h1>
             <div className={classes.allChats}>
                 {chats.length > 0 ? allChats : ''}

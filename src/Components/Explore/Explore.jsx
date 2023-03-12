@@ -62,10 +62,12 @@ const Explore = () => {
 
             <div className={classes.foodData}>
                 {!loading ? allFood : <>
-                    <Animation />
-                    <Animation />
-                    <Animation />
-                    <Animation />
+                    <Animation className={classes.animi} />
+                    <Animation className={classes.animi} />
+                    <Animation className={classes.animi} />
+                    <Animation className={classes.animi} />
+                    <Animation className={classes.animi} />
+                    <Animation className={classes.animi} />
                 </>}
             </div>
         </section>

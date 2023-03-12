@@ -73,13 +73,14 @@
 
 .explore .food {
     /* flex-basis: 45%; */
-    width: 45%;
+    width: 47%;
     text-align: center;
     border: 1px solid black;
     border-radius: 5px;
     position: relative;
     height: 120px;
     /* padding-top: 1rem; */
+    cursor: pointer;
 }
 
 .explore .imgCon {
@@ -100,6 +101,11 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     /* z-index: 100; */
+}
+
+.explore .animi {
+    width: 47%;
+    height: 120px;
 }
 
 
@@ -135,5 +141,10 @@
         margin-inline: 1rem;
         gap: 1rem;
     }
+
+    .explore .foodData {
+        margin-inline: 1rem;
+    }
+    
     
 }
