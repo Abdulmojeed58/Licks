@@ -1,0 +1,165 @@
+.exploreItem {
+    width: 41vw;
+    background-color: white;
+    min-height: 100vh;
+    padding: 2rem 0;
+    position: relative;
+    /* background-color: green; */
+}
+
+.exploreItem > h1 {
+    font-weight: 500;
+    /* background-color: blue; */
+    margin-inline: 2rem;
+    margin-bottom: 1rem;
+}
+
+.exploreItem .topIcon {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}
+
+.exploreItem .foodContent {
+    margin-inline: 2rem;
+    /* position: relative; */
+    /* background-color: blue; */
+}
+
+.exploreItem .a {
+    /* background-color: blue; */
+    position: relative;
+}
+
+.exploreItem .foodContent > div img {
+    /* background-color: red; */
+    width: 100%;
+}
+
+.exploreItem .animi {
+    width: 100%;
+    height: 45vh;
+}
+
+.exploreItem .foodContent > div h1 {
+    background-color: rgba(0, 0, 0, 0.434);
+    color: white;
+    position: absolute;
+    inset: 0 0 auto 0;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.exploreItem .foodContent ul {
+    list-style: none;
+    display: flex;
+    /* background-color: red; */
+    position: absolute;
+    inset: auto 0 0 0;
+}
+
+.exploreItem .foodContent ul li {
+    width: 50%;
+}
+
+.exploreItem .foodContent ul li button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    color: grey;
+    background-color: white;
+}
+
+.exploreItem .foodContent ul li button:hover {
+    border-color: black;
+    color: black;
+}
+
+.exploreItem .regular {
+    margin: 1rem 0;
+}
+
+.exploreItem .line {
+    width: 100%;
+    height: 1.5px;
+    background-color: #92918A;
+    margin: 2rem 0;
+}
+
+.exploreItem .schedule {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+}
+
+.exploreItem .addToCartBtn {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: #D16014;
+    cursor: pointer;
+}
+
+.exploreItem .addToCartBtn:hover {
+    background-color: #d16014d4;
+}
+
+.exploreItem .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+
+@media (max-width: 900px) {
+    .exploreItem {
+        width: 50vw;
+    }
+
+    .exploreItem .topIcon {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 730px) {
+    .exploreItem {
+        width: 100vw;
+    }
+
+    .exploreItem h1 {
+        margin-inline: 1rem;
+    }
+
+    .exploreItem .topIcon {
+        margin-inline: 1rem;
+    }
+
+    .exploreItem .foodContent {
+        margin-inline: 0rem;
+    }
+
+    .exploreItem .regular {
+        margin-inline: 1rem;
+    }
+
+    .exploreItem .addToCartBtn {
+        width: 90%;
+    }
+    
+}

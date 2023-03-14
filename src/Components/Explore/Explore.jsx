@@ -3,6 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdNotificationsNone } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 import classes from './Explore.module.css';
 import useGlobalContext from "../../GlobalContext";
@@ -30,14 +31,16 @@ const Explore = () => {
     const allFood = foods.categories?.map((category)=>{
         const {idCategory, strCategory: name, strCategoryThumb: image} = category
         return (
-            <div className={classes.food}>
+            // <div className={classes.food}>
+            <Link to={`/explore/${idCategory}`} className={classes.food}>
                 <Food 
                     key={idCategory}
                     image={image}
                     name={name}
                     className={classes.imgCon}
                 />
-            </div>
+            </Link>
+            // </div>
 
         )
     })

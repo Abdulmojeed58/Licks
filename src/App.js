@@ -7,6 +7,7 @@ import FoodItems from './Components/FoodItems/FoodItems';
 import Navbar from './Components/Navbar/Navbar';
 import { BsFillChatDotsFill } from "react-icons/bs";
 import Cart from './Components/Cart/Cart';
+import ExploreItem from './Components/Explore/ExploreItem';
 
 function App() {
   const [isShowChat, setIsShowChat] = useState(false)
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path='/' element={<FoodItems />} />
             <Route path='/explore' element={<Explore />} />
+            <Route path='/explore/:id' element={<ExploreItem />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='*' element={<h1>Page Note Available</h1>} />
           </Routes>
