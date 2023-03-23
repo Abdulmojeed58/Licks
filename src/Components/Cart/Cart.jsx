@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdNotificationsNone } from "react-icons/md";
 import useGlobalContext from "../../GlobalContext";
@@ -8,7 +8,6 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
     const {handleChange, items, totalAmount, removeFromCart} = useGlobalContext()
-    const inputRef = useRef()
 
     const handleRemoveFromCart = (id) => {
         removeFromCart(id)
@@ -16,7 +15,6 @@ const Cart = () => {
 
 
     const cartItems = items.map((item)=>{
-        // inputRef.current.value = item.qty
 
         return (
             <CartItem 
@@ -25,7 +23,6 @@ const Cart = () => {
                 name={item.strCategory} 
                 amount={(item.price * item.qty).toLocaleString()} 
                 onClick={()=>handleRemoveFromCart(item.idCategory)}
-                // ref={inputRef}
             />
         )
     })

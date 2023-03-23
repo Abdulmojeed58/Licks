@@ -8,7 +8,7 @@ import classes from './CartItem.module.css';
 
 
 
-const CartItem = React.forwardRef(({ image, name, amount, onClick }, ref) => {
+const CartItem = ({ image, name, amount, onClick }) => {
 
     return (
         <div className={classes.cartItem}>
@@ -20,7 +20,7 @@ const CartItem = React.forwardRef(({ image, name, amount, onClick }, ref) => {
                 <div className={classes.flex}>
                     <div>
                         <button><BiMinus /></button>
-                        <input type="number" defaultValue={1} ref={ref} />
+                        <input type="number" defaultValue={1} />
                         <button><BsPlus /></button>
                     </div>
                     <p>Delivery time: 2:00 PM</p>
@@ -28,6 +28,6 @@ const CartItem = React.forwardRef(({ image, name, amount, onClick }, ref) => {
             </div>
         </div>
     )
-})
+}
 
 export default CartItem
