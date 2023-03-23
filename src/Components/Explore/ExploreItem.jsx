@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { allData } from "../axios";
 import classes from "./ExploreItem.module.css";
@@ -8,8 +8,9 @@ import useGlobalContext from "../../GlobalContext";
 import Animation from "../Animation/Animation";
 
 const ExploreItem = () => {
+    const {handleChange, addToCart} = useGlobalContext()
     const {id} = useParams()
-    const {handleChange} = useGlobalContext()
+    const ref = useRef()
 
     const [foods, setFoods] = useState([])
     const [loading, setLoading] = useState(true)
@@ -26,8 +27,16 @@ const ExploreItem = () => {
         return category.idCategory === id
     })
 
+    const addToCartHandler = () => {
+        addToCart({
+            ...individualFood,
+            price: 700,
+            qty: ref.current.value
+        })
+    }
 
-    console.log(individualFood?.idCategory)
+
+    // console.log(individualFood?.idCategory)
     return (
         <section className={classes.exploreItem}>
             <div className={classes.topIcon}>
@@ -61,12 +70,24 @@ const ExploreItem = () => {
 
                     <div className={classes.line} />
 
+                    <div className={classes.qty}>
+                        <div>
+                            <button>-</button>
+                            <input type="number" ref={ref} defaultValue={1} min={1} max={5} />
+                            <button>+</button>
+                        </div>
+                        <p>4,200</p>
+                    </div>
+
                     <div className={classes.schedule}>
                         <input type="checkbox" name="" id="" />
                         <p>Schedule delivery</p>
                     </div>
 
-                    <button className={classes.addToCartBtn}>Add 2 regular to cart - NGN 4,200</button>
+                    <button 
+                        className={classes.addToCartBtn}
+                        onClick={addToCartHandler}
+                    >Add 2 regular to cart - NGN 4,200</button>
                 </div>
 
                 <div className={classes.special}>

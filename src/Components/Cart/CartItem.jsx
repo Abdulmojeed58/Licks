@@ -1,23 +1,24 @@
 import React from "react";
-import cartPhoto from '../../Images/Rectangle 21.png';
 import { RiCloseFill } from "react-icons/ri";
+// import useGlobalContext from "../../GlobalContext";
 
 import classes from './CartItem.module.css';
 
 
 
-const CartItem = () => {
+const CartItem = React.forwardRef(({ image, name, amount, onClick }, ref) => {
+
     return (
         <div className={classes.cartItem}>
-            <RiCloseFill className={classes.close} />
-            <img src={cartPhoto} alt='cartImage' />
+            <RiCloseFill className={classes.close} onClick={onClick} />
+            <img src={image} alt={name} />
             <div>
-                <p className={classes.name}>jollof rice</p>
-                <p className={classes.price}>NGN 5,700</p>
+                <p className={classes.name}>{name}</p>
+                <p className={classes.price}>NGN {amount}</p>
                 <div className={classes.flex}>
                     <div>
                         <button>-</button>
-                        <input type="number" />
+                        <input type="number" defaultValue={1} ref={ref} />
                         <button>+</button>
                     </div>
                     <p>Delivery time: 2:00 PM</p>
@@ -25,6 +26,6 @@ const CartItem = () => {
             </div>
         </div>
     )
-}
+})
 
 export default CartItem

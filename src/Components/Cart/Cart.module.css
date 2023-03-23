@@ -4,6 +4,7 @@
     min-height: 100vh;
     padding: 2rem;
     overflow: hidden;
+    position: relative;
 }
 
 .cart .topIcon {
@@ -22,6 +23,14 @@
 .cart h2 {
     text-align: center;
     font-weight: 500;
+}
+
+.cart .totalAmount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    inset: auto 2rem 2rem 2rem;
 }
 
 @media (max-width: 900px) {

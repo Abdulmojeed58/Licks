@@ -97,6 +97,7 @@
     display: flex;
     align-items: center;
     gap: .3rem;
+    margin-top: 1rem;
 }
 
 .exploreItem .addToCartBtn {
@@ -111,16 +112,47 @@
     outline: none;
     background-color: #D16014;
     cursor: pointer;
+    color: white;
 }
 
 .exploreItem .addToCartBtn:hover {
     background-color: #d16014d4;
+    color: white;
 }
 
 .exploreItem .flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.exploreItem .qty, .exploreItem .qty > div {
+    margin-top: .3rem;
+    display: flex;
+    align-items: center;
+}
+
+.exploreItem input {
+    width: 30px;
+    margin-inline: .5rem;
+}
+
+.exploreItem .qty button {
+    background-color: #D16014;
+    color: white;
+    padding: .1rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.exploreItem .qty p {
+    font-size: 1.3rem;
+    color: grey;
+    margin-left: auto;
 }
 
 

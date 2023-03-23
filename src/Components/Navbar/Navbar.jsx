@@ -13,8 +13,8 @@ import classes from './Navbar.module.css';
 import useGlobalContext from "../../GlobalContext";
 
 const Navbar = () => {
-    const {isNavBarActive, handleChange} = useGlobalContext()
-    const {handleIdChange, currentId} = useGlobalContext()
+    const {isNavBarActive, handleChange, handleIdChange, currentId} = useGlobalContext()
+    // const {handleIdChange, currentId} = useGlobalContext()
 
     const navClass = !isNavBarActive? `${classes.navbar} ${classes.active}`: `${classes.navbar}`;
 
