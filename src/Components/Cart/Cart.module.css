@@ -38,6 +38,10 @@
         width: 50vw;
     }
 
+    .cart .topIcon {
+        margin-inline: 0;
+    }
+
     .cart .topIcon .icon {
         display: block;
     }

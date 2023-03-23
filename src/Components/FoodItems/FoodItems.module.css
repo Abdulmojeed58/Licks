@@ -4,10 +4,6 @@
     min-height: 100vh;
     padding: 2rem 0;
     overflow: hidden;
-    /* position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%); */
 }
 
 .foodItems .topIcon {
@@ -104,6 +100,14 @@
     width: max-content;
 }
 
+.foodItems .discount {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+    margin-bottom: .6rem;
+}
+
 
 @media (max-width: 900px) {
     .foodItems {
@@ -137,6 +141,10 @@
     }
 
     .foodItems .foodData {
+        margin-left: 1rem;
+    }
+
+    .foodItems .discount {
         margin-left: 1rem;
     }
 

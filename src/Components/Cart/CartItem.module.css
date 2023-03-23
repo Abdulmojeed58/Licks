@@ -16,6 +16,7 @@
     font-size: 1.2rem;
     right: .3rem;
     top: .3rem;
+    cursor: pointer;
 }
 
 .cartItem > div {
@@ -48,13 +49,15 @@
 .cartItem button {
     background-color: #D16014;
     color: white;
-    padding: .1rem;
     font-size: 1rem;
     border-radius: 50%;
     border: none;
     width: 20px;
     height: 20px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cartItem .flex p {

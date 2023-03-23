@@ -18,74 +18,79 @@ const Navbar = () => {
 
     const navClass = !isNavBarActive? `${classes.navbar} ${classes.active}`: `${classes.navbar}`;
 
+    const modalClass = !isNavBarActive? `${classes.modal} ${classes.active}`: `${classes.modal}`;
+
 
 
     return (
-        <nav className={navClass}>
-            <div className={classes.logo}>
-                <img src={Logo} alt="Logo" />
-            </div>
-            <ul>
-                <Link to='/' className={currentId === 1 ? classes.active : ''} onClick={()=>{
-                    handleChange()
-                    handleIdChange(1)
-                }}>
-                    <MdLocalDining />
-                    <span>Food</span>
-                </Link>
-                <Link to='explore' className={currentId === 2 ? classes.active : ''} onClick={()=>{
-                    handleChange()
-                    handleIdChange(2)
-                }}>
-                    <AiOutlineSearch />
-                    <span>Explore</span>
-                </Link>
-                <Link to='cart' className={currentId === 3 ? classes.active : ''} onClick={()=>{
-                    handleChange()
-                    handleIdChange(3)
-                }}>
-                    <HiShoppingCart />
-                    <span>Cart</span>
-                </Link>
-                <li>
-                    <RxCountdownTimer />
-                    <span>Orders</span>
-                </li>
-            </ul>
-            
-            <div className={classes.line} />
-
-            <ul>
-                 <li>
-                    <BsPerson />
-                    <span>Profile</span>
-                </li>
-                <li>
-                    <MdNotificationsNone />
-                    <span>Notification</span>
-                </li>
-                <li>
-                    <CiMenuKebab />
-                    <span>More</span>
-                </li>
-                <li>
-                    <MdOutlineLogout />
-                    <span>Log out</span>
-                </li>
-            </ul>
-
-            <div className={classes.bottom}>
-                <div className={classes.profile}>
-                    <img src={Profile} alt="Profile" />
+        <>
+            <div className={modalClass} onClick={handleChange}/>
+            <nav className={navClass}>
+                <div className={classes.logo}>
+                    <img src={Logo} alt="Logo" />
                 </div>
-                <div>
-                    <h4>Ayoola Abdulmojeed</h4>
-                    <p>mojeedayoola58@gmail.com</p>
-                </div>
-                <MdOutlineMoreVert />
-            </div>
+                <ul>
+                    <Link to='/' className={currentId === 1 ? classes.active : ''} onClick={()=>{
+                        handleChange()
+                        handleIdChange(1)
+                    }}>
+                        <MdLocalDining />
+                        <span>Food</span>
+                    </Link>
+                    <Link to='explore' className={currentId === 2 ? classes.active : ''} onClick={()=>{
+                        handleChange()
+                        handleIdChange(2)
+                    }}>
+                        <AiOutlineSearch />
+                        <span>Explore</span>
+                    </Link>
+                    <Link to='cart' className={currentId === 3 ? classes.active : ''} onClick={()=>{
+                        handleChange()
+                        handleIdChange(3)
+                    }}>
+                        <HiShoppingCart />
+                        <span>Cart</span>
+                    </Link>
+                    <li>
+                        <RxCountdownTimer />
+                        <span>Orders</span>
+                    </li>
+                </ul>
+                
+                <div className={classes.line} />
 
-        </nav>
+                <ul>
+                    <li>
+                        <BsPerson />
+                        <span>Profile</span>
+                    </li>
+                    <li>
+                        <MdNotificationsNone />
+                        <span>Notification</span>
+                    </li>
+                    <li>
+                        <CiMenuKebab />
+                        <span>More</span>
+                    </li>
+                    <li>
+                        <MdOutlineLogout />
+                        <span>Log out</span>
+                    </li>
+                </ul>
+
+                <div className={classes.bottom}>
+                    <div className={classes.profile}>
+                        <img src={Profile} alt="Profile" />
+                    </div>
+                    <div>
+                        <h4>Ayoola Abdulmojeed</h4>
+                        <p>mojeedayoola58@gmail.com</p>
+                    </div>
+                    <MdOutlineMoreVert />
+                </div>
+
+            </nav>
+        </>
     )
 }
 

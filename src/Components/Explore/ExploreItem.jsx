@@ -6,6 +6,8 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { MdNotificationsNone } from "react-icons/md";
 import useGlobalContext from "../../GlobalContext";
 import Animation from "../Animation/Animation";
+import { BsPlus } from "react-icons/bs";
+import { BiMinus } from "react-icons/bi";
 
 const ExploreItem = () => {
     const {handleChange, addToCart} = useGlobalContext()
@@ -31,7 +33,7 @@ const ExploreItem = () => {
         addToCart({
             ...individualFood,
             price: 700,
-            qty: ref.current.value
+            qty: +ref.current.value
         })
     }
 
@@ -72,9 +74,9 @@ const ExploreItem = () => {
 
                     <div className={classes.qty}>
                         <div>
-                            <button>-</button>
+                            <button><BiMinus /></button>
                             <input type="number" ref={ref} defaultValue={1} min={1} max={5} />
-                            <button>+</button>
+                            <button><BsPlus /></button>
                         </div>
                         <p>4,200</p>
                     </div>

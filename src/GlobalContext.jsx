@@ -51,13 +51,12 @@ const cartReducer = (state, action) => {
             let updatedCartItems
 
             if(existingCartItem.qty === 1) {
-                updatedCartItems = state.items.filter(item=>item.id != action.idCategory)
+                updatedCartItems = state.items.filter(item=>item.id !== action.idCategory)
             } else {
                 const updatedCartItem = {
                     ...existingCartItem,
                     qty: existingCartItem.qty - 1
                 }
-                console.log(state.items)
 
                 updatedCartItems = [...state.items]
                 updatedCartItems[existingCartItemIndex] = updatedCartItem

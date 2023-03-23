@@ -140,13 +140,16 @@
 .exploreItem .qty button {
     background-color: #D16014;
     color: white;
-    padding: .1rem;
+    /* padding: .1rem; */
     font-size: 1rem;
     border-radius: 50%;
     border: none;
     width: 20px;
     height: 20px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .exploreItem .qty p {

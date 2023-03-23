@@ -9,6 +9,9 @@ import Animation from "../Animation/Animation";
 import classes from './FoodItems.module.css';
 import useGlobalContext from "../../GlobalContext";
 import Food from "./Food";
+import discount1 from '../../Images/Discount1.png';
+import discount2 from '../../Images/Discount2.png';
+import Discount from "./Discount";
 
 const FoodItems = () => {
     const {handleChange} = useGlobalContext()
@@ -92,6 +95,11 @@ const FoodItems = () => {
                 <div className={classes.foodCategories}>
                     <h2>Discounts</h2>
                     <button>View all</button>
+                </div>
+
+                <div className={classes.discount}>
+                    <Discount image={discount1} name='Pounded Yam' />
+                    <Discount image={discount2} name='Jollof Rice' />
                 </div>
             </div>
         </section>

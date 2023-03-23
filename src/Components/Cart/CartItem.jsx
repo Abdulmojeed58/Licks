@@ -1,6 +1,8 @@
 import React from "react";
 import { RiCloseFill } from "react-icons/ri";
 // import useGlobalContext from "../../GlobalContext";
+import { BiMinus } from "react-icons/bi";
+import { BsPlus } from "react-icons/bs";
 
 import classes from './CartItem.module.css';
 
@@ -17,9 +19,9 @@ const CartItem = React.forwardRef(({ image, name, amount, onClick }, ref) => {
                 <p className={classes.price}>NGN {amount}</p>
                 <div className={classes.flex}>
                     <div>
-                        <button>-</button>
+                        <button><BiMinus /></button>
                         <input type="number" defaultValue={1} ref={ref} />
-                        <button>+</button>
+                        <button><BsPlus /></button>
                     </div>
                     <p>Delivery time: 2:00 PM</p>
                 </div>
