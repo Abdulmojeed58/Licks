@@ -50,17 +50,11 @@ const cartReducer = (state, action) => {
 
             let updatedCartItems
 
-            if(existingCartItem.qty === 1) {
-                updatedCartItems = state.items.filter(item=>item.id !== action.idCategory)
-            } else {
-                const updatedCartItem = {
-                    ...existingCartItem,
-                    qty: existingCartItem.qty - 1
-                }
+            // if(existingCartItem.qty === 1) {
+                updatedCartItems = state.items.filter(item=>item.idCategory !== action.id)
+            // }
 
-                updatedCartItems = [...state.items]
-                updatedCartItems[existingCartItemIndex] = updatedCartItem
-            }
+            // console.log(idCategory, item.id)
 
             return {
                 items: updatedCartItems,
@@ -69,6 +63,35 @@ const cartReducer = (state, action) => {
 
 
         }
+        // case 'REMOVE': {
+
+        //     const existingCartItemIndex = state.items.findIndex(item=>action.id === item.idCategory)
+
+        //     const existingCartItem = state.items[existingCartItemIndex]
+
+        //     const updatedTotalAmount = state.totalAmount - existingCartItem.price
+
+        //     let updatedCartItems
+
+        //     if(existingCartItem.qty === 1) {
+        //         updatedCartItems = state.items.filter(item=>item.id !== action.idCategory)
+        //     } else {
+        //         const updatedCartItem = {
+        //             ...existingCartItem,
+        //             qty: existingCartItem.qty - 1
+        //         }
+
+        //         updatedCartItems = [...state.items]
+        //         updatedCartItems[existingCartItemIndex] = updatedCartItem
+        //     }
+
+        //     return {
+        //         items: updatedCartItems,
+        //         totalAmount: updatedTotalAmount
+        //     }
+
+
+        // }
 
         default:
             return defaultCartState
