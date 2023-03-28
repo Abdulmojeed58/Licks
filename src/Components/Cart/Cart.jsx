@@ -23,6 +23,8 @@ const Cart = () => {
                 name={item.strCategory} 
                 amount={(item.price * item.qty).toLocaleString()} 
                 onClick={()=>handleRemoveFromCart(item.idCategory)}
+                qty={item.qty}
+                item={item}
             />
         )
     })

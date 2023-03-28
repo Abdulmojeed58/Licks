@@ -17,6 +17,8 @@ const Explore = () => {
     const {handleChange} = useGlobalContext()
     const [foods, setFoods] = useState([])
     const [loading, setLoading] = useState(true)
+    const [search, setSearch] = useState('')
+    const [debouncer, setDebouncer] = useState('')
 
     useEffect(()=>{
         allData().then(res=> {
@@ -25,13 +27,27 @@ const Explore = () => {
         })
         .catch(error=>console.log(`There is an error ${error}`))
     }, [])
-    
-    console.log(foods)
 
-    const allFood = foods.categories?.map((category)=>{
+    const handleFilter = (e) => {
+        
+        setSearch(e.target.value)
+    }
+
+    useEffect(()=>{
+        const timerId = setTimeout(()=>{
+            setDebouncer(search)
+        }, 300)
+        
+        return ()=> clearTimeout(timerId)
+    }, [search])
+
+    const regEx = new RegExp(debouncer, 'i')
+    
+    
+
+    const allFood = foods.categories?.filter((category)=>category.strCategory.match(regEx)).map((category)=>{
         const {idCategory, strCategory: name, strCategoryThumb: image} = category
         return (
-            // <div className={classes.food}>
             <Link to={`/explore/${idCategory}`} className={classes.food}>
                 <Food 
                     key={idCategory}
@@ -40,7 +56,6 @@ const Explore = () => {
                     className={classes.imgCon}
                 />
             </Link>
-            // </div>
 
         )
     })
@@ -58,6 +73,8 @@ const Explore = () => {
                     <input 
                         type='text' 
                         placeholder="Search for foods"
+                        value={search}
+                        onChange={(e)=>handleFilter(e)}
                     />
                 </div>
                 <MdFavoriteBorder className={classes.likeIcon} />

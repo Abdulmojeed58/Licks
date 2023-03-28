@@ -11,7 +11,7 @@ const cartReducer = (state, action) => {
     switch(action.type) {
         case 'ADD': {
             
-            const updatedTotalAmount = state.totalAmount + action.item.price * action.item.qty
+            let updatedTotalAmount = state.totalAmount + action.item.price * action.item.qty
 
             const existingCartItemIndex = state.items.findIndex(item=>action.item.idCategory === item.idCategory)
 
@@ -22,8 +22,10 @@ const cartReducer = (state, action) => {
             if(existingCartItem) {
                 const updatedCartItem = {
                     ...existingCartItem,
-                    qty: existingCartItem.qty + action.item.qty
+                    qty: existingCartItem.qty + 1
                 }
+
+                updatedTotalAmount = state.totalAmount + action.item.price
 
                 updatedCartItems = [...state.items]
                 updatedCartItems[existingCartItemIndex] = updatedCartItem
@@ -50,11 +52,8 @@ const cartReducer = (state, action) => {
 
             let updatedCartItems
 
-            // if(existingCartItem.qty === 1) {
-                updatedCartItems = state.items.filter(item=>item.idCategory !== action.id)
-            // }
+            updatedCartItems = state.items.filter(item=>item.idCategory !== action.id)
 
-            // console.log(idCategory, item.id)
 
             return {
                 items: updatedCartItems,
@@ -63,35 +62,36 @@ const cartReducer = (state, action) => {
 
 
         }
-        // case 'REMOVE': {
 
-        //     const existingCartItemIndex = state.items.findIndex(item=>action.id === item.idCategory)
+        case 'REMOVE_BY_ONE': {
 
-        //     const existingCartItem = state.items[existingCartItemIndex]
+            const existingCartItemIndex = state.items.findIndex(item=>action.id === item.idCategory)
 
-        //     const updatedTotalAmount = state.totalAmount - existingCartItem.price
+            const existingCartItem = state.items[existingCartItemIndex]
 
-        //     let updatedCartItems
+            const updatedTotalAmount = state.totalAmount - existingCartItem.price
 
-        //     if(existingCartItem.qty === 1) {
-        //         updatedCartItems = state.items.filter(item=>item.id !== action.idCategory)
-        //     } else {
-        //         const updatedCartItem = {
-        //             ...existingCartItem,
-        //             qty: existingCartItem.qty - 1
-        //         }
+            let updatedCartItems
 
-        //         updatedCartItems = [...state.items]
-        //         updatedCartItems[existingCartItemIndex] = updatedCartItem
-        //     }
+            if(existingCartItem.qty === 1) {
+                updatedCartItems = state.items.filter(item=>item.idCategory !== action.id)
+            } else {
+                const updatedCartItem = {
+                    ...existingCartItem,
+                    qty: existingCartItem.qty - 1
+                }
 
-        //     return {
-        //         items: updatedCartItems,
-        //         totalAmount: updatedTotalAmount
-        //     }
+                updatedCartItems = [...state.items]
+                updatedCartItems[existingCartItemIndex] = updatedCartItem
+            }
+
+            return {
+                items: updatedCartItems,
+                totalAmount: updatedTotalAmount
+            }
 
 
-        // }
+        }
 
         default:
             return defaultCartState
@@ -114,6 +114,11 @@ export const AppProvider = ({children}) => {
         dispatchCartAction({type: 'REMOVE', id: id})
     }
 
+    const removeByOne = (id) => {
+
+        dispatchCartAction({type: 'REMOVE_BY_ONE', id: id})
+    }
+
     const handleChange = () => {
         setIsNavBarActive(prevValue=>!prevValue)
     }
@@ -133,6 +138,7 @@ return (
         setCurrentId,
         addToCart,
         removeFromCart,
+        removeByOne,
         items: cartState.items,
         totalAmount: cartState.totalAmount
     }}>

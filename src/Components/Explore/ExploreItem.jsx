@@ -13,6 +13,7 @@ const ExploreItem = () => {
     const {handleChange, addToCart} = useGlobalContext()
     const {id} = useParams()
     const ref = useRef()
+    const [input, setInput] = useState(1)
 
     const [foods, setFoods] = useState([])
     const [loading, setLoading] = useState(true)
@@ -67,18 +68,27 @@ const ExploreItem = () => {
 
                     <div className={classes.flex}>
                         <p>Total</p>
-                        <p>2,100</p>
+                        <p>{input * 700}</p>
                     </div>
 
                     <div className={classes.line} />
 
                     <div className={classes.qty}>
                         <div>
-                            <button><BiMinus /></button>
-                            <input type="number" ref={ref} defaultValue={1} min={1} max={5} />
-                            <button><BsPlus /></button>
+                            <button onClick={()=>setInput(prev=>prev - 1)}><BiMinus /></button>
+
+                            <input 
+                                type="number" 
+                                ref={ref}
+                                min={1} 
+                                max={5} 
+                                value={input}
+                                onChange={e=>setInput(e.target.value)}
+                            />
+
+                            <button onClick={()=>setInput(prev=>prev + 1)}><BsPlus /></button>
                         </div>
-                        <p>4,200</p>
+                        <p>{input * 700}</p>
                     </div>
 
                     <div className={classes.schedule}>
@@ -89,7 +99,7 @@ const ExploreItem = () => {
                     <button 
                         className={classes.addToCartBtn}
                         onClick={addToCartHandler}
-                    >Add 2 regular to cart - NGN 4,200</button>
+                    >Add {input} regular to cart - NGN {input * 700}</button>
                 </div>
 
                 <div className={classes.special}>

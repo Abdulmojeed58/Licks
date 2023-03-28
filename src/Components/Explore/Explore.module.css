@@ -71,11 +71,15 @@
     gap: 1rem;
 }
 
+.explore a {
+    color: black;
+}
+
 .explore .food {
     /* flex-basis: 45%; */
     width: 47%;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.176);
     border-radius: 5px;
     position: relative;
     height: 120px;

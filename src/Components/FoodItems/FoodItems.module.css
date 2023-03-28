@@ -52,6 +52,10 @@
     color: #0000009d;
 }
 
+.foodItems .viewAll {
+    color: black;
+}
+
 .foodItems .foodCategories {
     display: flex;
     align-items: center;
