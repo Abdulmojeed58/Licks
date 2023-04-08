@@ -8,8 +8,11 @@ import Navbar from './Components/Navbar/Navbar';
 import { BsFillChatDotsFill } from "react-icons/bs";
 import Cart from './Components/Cart/Cart';
 import ExploreItem from './Components/Explore/ExploreItem';
+import useGlobalContext from './GlobalContext';
+import Message from './Components/Message/Message';
 
 function App() {
+  const {showMessage, message} = useGlobalContext()
   const [isShowChat, setIsShowChat] = useState(false)
 
   const handleIsShowChat = () => {
@@ -19,6 +22,7 @@ function App() {
 
   return (
       <div className={classes.App}>
+        {showMessage && <Message message={message} />}
         <Navbar />
         <div className={classes.flex}>
           <div className={classes.left} />

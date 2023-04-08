@@ -42,7 +42,11 @@
     color: #d1601460;
 }
 
-.navbar li.active, .navbar a.active {
+/* .navbar li.active, .navbar a.active {
+    border-color: #D16014;
+    color: #D16014;
+} */
+.navbar li:focus, .navbar a:focus {
     border-color: #D16014;
     color: #D16014;
 }

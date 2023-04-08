@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useReducer, useState } from "react";
 
 const AppContext = createContext()
 
@@ -48,7 +48,7 @@ const cartReducer = (state, action) => {
 
             const existingCartItem = state.items[existingCartItemIndex]
 
-            const updatedTotalAmount = state.totalAmount - existingCartItem.price
+            const updatedTotalAmount = state.totalAmount - existingCartItem.price * existingCartItem.qty
 
             let updatedCartItems
 
@@ -103,21 +103,26 @@ export const AppProvider = ({children}) => {
     const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState)
     const [isNavBarActive, setIsNavBarActive] = useState(false)
     const [currentId, setCurrentId] = useState(1)
+    const [showMessage, setShowMessage] = useState(false)
+    const [message, setMessage] = useState('')
 
-    const addToCart = (item) => {
-
+    const addToCart = useCallback((item) => {
         dispatchCartAction({type: 'ADD', item: item})
-    }
+        setShowMessage(true)
+        setMessage('Added to cart successfully')
+    }, [dispatchCartAction])
 
-    const removeFromCart = (id) => {
-
+    const removeFromCart = useCallback((id) => {
         dispatchCartAction({type: 'REMOVE', id: id})
-    }
+        setShowMessage(true)
+        setMessage('Product removed successfully')
+    }, [dispatchCartAction])
 
-    const removeByOne = (id) => {
-
+    const removeByOne = useCallback((id) => {
         dispatchCartAction({type: 'REMOVE_BY_ONE', id: id})
-    }
+        setShowMessage(true)
+        setMessage('An item has been removed from the cart')
+    }, [dispatchCartAction])
 
     const handleChange = () => {
         setIsNavBarActive(prevValue=>!prevValue)
@@ -125,8 +130,15 @@ export const AppProvider = ({children}) => {
 
     const handleIdChange = (id) => {
         setCurrentId(id)
-        // console.log(id)
     }
+
+    useEffect(()=>{
+        const messageId = setTimeout(()=>{
+            setShowMessage(false)
+        }, 3000)
+
+        return ()=> clearTimeout(messageId)
+    }, [])
 
 return (
     <AppContext.Provider value={{
@@ -140,7 +152,9 @@ return (
         removeFromCart,
         removeByOne,
         items: cartState.items,
-        totalAmount: cartState.totalAmount
+        totalAmount: cartState.totalAmount,
+        showMessage,
+        message
     }}>
         {children}
     </AppContext.Provider>

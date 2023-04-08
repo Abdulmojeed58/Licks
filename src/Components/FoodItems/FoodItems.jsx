@@ -74,7 +74,7 @@ const FoodItems = () => {
             <div>
                 <div className={classes.foodCategories}>
                     <h2>Food Categories</h2>
-                    <button onClick={toggleViewAll} className={classes.viewAll}>View all</button>
+                    <button onClick={toggleViewAll} className={classes.viewAll}>{viewAll ? 'View less' : 'View all'}</button>
                 </div>
                 <div className={viewAll ? classes.foodData : `${classes.foodData} ${classes.overflow}`}>
                     {

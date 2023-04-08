@@ -99,7 +99,9 @@ const ExploreItem = () => {
                     <button 
                         className={classes.addToCartBtn}
                         onClick={addToCartHandler}
-                    >Add {input} regular to cart - NGN {input * 700}</button>
+                    >
+                        Add {input} regular to cart - NGN {input * 700}
+                    </button>
                 </div>
 
                 <div className={classes.special}>
