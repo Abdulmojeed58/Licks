@@ -7,7 +7,6 @@ import { BsPlus } from "react-icons/bs";
 import classes from './CartItem.module.css';
 
 
-
 const CartItem = ({ image, name, amount, onClick, qty, item }) => {
     const {addToCart, removeByOne} = useGlobalContext()
 

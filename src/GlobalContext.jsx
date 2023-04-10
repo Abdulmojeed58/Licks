@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useReducer, useState } from "react";
+import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
 
 const AppContext = createContext()
 
@@ -106,23 +106,23 @@ export const AppProvider = ({children}) => {
     const [showMessage, setShowMessage] = useState(false)
     const [message, setMessage] = useState('')
 
-    const addToCart = useCallback((item) => {
+    const addToCart = (item) => {
         dispatchCartAction({type: 'ADD', item: item})
         setShowMessage(true)
         setMessage('Added to cart successfully')
-    }, [dispatchCartAction])
+    }
 
-    const removeFromCart = useCallback((id) => {
+    const removeFromCart = (id) => {
         dispatchCartAction({type: 'REMOVE', id: id})
         setShowMessage(true)
         setMessage('Product removed successfully')
-    }, [dispatchCartAction])
+    }
 
-    const removeByOne = useCallback((id) => {
+    const removeByOne = (id) => {
         dispatchCartAction({type: 'REMOVE_BY_ONE', id: id})
         setShowMessage(true)
         setMessage('An item has been removed from the cart')
-    }, [dispatchCartAction])
+    }
 
     const handleChange = () => {
         setIsNavBarActive(prevValue=>!prevValue)
@@ -138,7 +138,7 @@ export const AppProvider = ({children}) => {
         }, 3000)
 
         return ()=> clearTimeout(messageId)
-    }, [])
+    }, [addToCart, removeFromCart, removeByOne])
 
 return (
     <AppContext.Provider value={{
